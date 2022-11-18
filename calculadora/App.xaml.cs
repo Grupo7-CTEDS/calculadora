@@ -13,5 +13,6 @@ namespace calculadora
     /// </summary>
     public partial class App : Application
     {
+
     }
 }
