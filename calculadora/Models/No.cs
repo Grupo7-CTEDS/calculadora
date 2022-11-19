@@ -5,7 +5,7 @@ namespace calculadora.Models
     {
         public Nullable<char> operation;
         public No left, right;
-        public int number;
+        public double number;
 
         public No()
         {

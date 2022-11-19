@@ -9,13 +9,7 @@ namespace calculadora.Models
 		{
 
 		}
-        public static int pow(int b, int exp)
-        {
-            int a = 1;
-            while (exp >= 1) a = a * b;
-            return a;
-
-        }
+   
 
         public static List<char> operations = new List<char>()
         {
