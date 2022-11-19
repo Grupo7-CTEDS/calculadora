@@ -16,7 +16,8 @@ namespace calculadora.Models
             '+',
             '*',
             '-',
-            '/'
+            '/',
+            '^'
         };
 
         public static int opCentral(String s)

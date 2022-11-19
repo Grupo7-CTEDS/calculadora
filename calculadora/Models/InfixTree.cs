@@ -114,7 +114,7 @@ namespace calculadora
 
             }
         }
-        static void calculate(ref No root)
+         static void calculate(ref No root)
         {
 
 
@@ -131,13 +131,13 @@ namespace calculadora
                 if (root.operation == '+') root.number = op1 + op2;
                 else if (root.operation == '*') root.number = op1 * op2;
                 else if (root.operation == '/') root.number = op1 / op2;
+                else if (root.operation == '^') root.number = Math.Pow(op1, op2);
                 root.operation = null;
 
             }
 
 
         }
-
 
 
     }
