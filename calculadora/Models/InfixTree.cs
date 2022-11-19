@@ -4,135 +4,142 @@ using System.Collections.Generic;
 
 namespace calculadora
 {
-	public class InfixTree
-	{
-		public InfixTree()
-        {
-		}
+    public class InfixTree
+    {
 
-        // Function to create new node
-        static Nptr newNode(char c)
-        {
-            Nptr n = new Nptr();
-            n.data = c;
-            n.left = n.right = null;
-            return n;
-        }
 
         // Function to build Expression Tree
-        public static Nptr build(String s)
+        public static void build(String s, ref No root)
         {
+            int p = InfixTreeRepositories.opCentral(s);
+            root.operation = s[p];
 
-            // Stack to hold nodes
-            Stack<Nptr> stN = new Stack<Nptr>();
 
-            // Stack to hold chars
-            Stack<char> stC = new Stack<char>();
-            Nptr t, t1, t2;
-
-            // Prioritising the operators
-            int[] p = new int[123];
-            p['+'] = p['-'] = 1;
-            p['/'] = p['*'] = 2;
-            p['^'] = 3;
-            p[')'] = 0;
-
-            for (int i = 0; i < s.Length; i++)
+            No no_d = new No();
+            if (s[p + 1] == '(')
             {
-                if (s[i] == '(')
+
+                int contador = 0;
+                int comprimento = 0;
+
+                do
                 {
 
-                    // Push '(' in char stack
-                    stC.Push(s[i]);
-                }
-
-                // Push the operands in node stack
-                else if (char.IsDigit(s[i]))
-                {
-                    t = newNode(s[i]);
-                    stN.Push(t);
-                }
-                else if (p[s[i]] > 0)
-                {
-
-                    // If an operator with lower or
-                    // same associativity appears
-                    while (stC.Count != 0 && stC.Peek() != '('
-                        && ((s[i] != '^' && p[stC.Peek()] >= p[s[i]])
-                            || (s[i] == '^' && p[stC.Peek()] > p[s[i]])))
+                    if (s[p + 1 + comprimento] == '(')
                     {
-
-                        // Get and remove the top element
-                        // from the character stack
-                        t = newNode(stC.Peek());
-                        stC.Pop();
-
-                        // Get and remove the top element
-                        // from the node stack
-                        t1 = stN.Peek();
-                        stN.Pop();
-
-                        // Get and remove the currently top
-                        // element from the node stack
-                        t2 = stN.Peek();
-                        stN.Pop();
-
-                        // Update the tree
-                        t.left = t2;
-                        t.right = t1;
-
-                        // Push the node to the node stack
-                        stN.Push(t);
+                        contador++;
+                    }
+                    if (s[p + 1 + comprimento] == ')')
+                    {
+                        contador--;
                     }
 
-                    // Push s[i] to char stack
-                    stC.Push(s[i]);
-                }
-                else if (s[i] == ')')
-                {
-                    while (stC.Count != 0 && stC.Peek() != '(')
-                    {
-                        t = newNode(stC.Peek());
-                        stC.Pop();
-                        t1 = stN.Peek();
-                        stN.Pop();
-                        t2 = stN.Peek();
-                        stN.Pop();
-                        t.left = t2;
-                        t.right = t1;
-                        stN.Push(t);
-                    }
-                    stC.Pop();
-                }
+                    comprimento++;
+
+                } while (contador != 0);
+
+                build(s.Substring(p + 2, comprimento - 2), ref no_d);//envia os parenteses das bordas
+                root.right = no_d;
+
             }
-            t = stN.Peek();
-            return t;
-        }
-
-        static char calculate(Nptr root)
-        {
-
-
-            if (!char.IsDigit(root.left.data)) root.left.data = calculate(root.left);
-            if (!char.IsDigit(root.right.data)) root.right.data = calculate(root.right);
-
-            char value = '0';
-            if (char.IsDigit(root.left.data) & char.IsDigit(root.right.data))
+            else if (char.IsDigit(s[p + 1]))
             {
-                int op1 = int.Parse(root.left.data.ToString());
-                int op2 = int.Parse(root.right.data.ToString());
+                int digitos = 0;
 
-                if (root.data == '+') value = Convert.ToChar(op1 + op2 + '0');
-                if (root.data == '*') value = Convert.ToChar(op1 * op2 + '0');
-                if (root.data == '/') value = Convert.ToChar(op1 / op2 + '0');
+                while (char.IsDigit(s[p + 1 + digitos]))
+                {
+                    digitos++;
+                    if (p + 1 + digitos >= s.Length - 1) break;
+                }
 
+
+                no_d.number = Int32.Parse(s.Substring(p + 1, digitos));
+                root.right = no_d;
 
             }
 
-            return value;
+            No no_e = new No();
+            if (s[p - 1] == ')')
+            {
+
+
+                int contador = 0;
+                int comprimento = 0;
+
+                do
+                {
+                    if (s[p - 1 - comprimento] == ')')
+                    {
+                        contador++;
+                    }
+                    if (s[p - 1 - comprimento] == '(')
+                    {
+                        contador--;
+                    }
+
+
+                    comprimento++;
+                } while (contador != 0);
+                comprimento = comprimento - 2;
+
+
+                build(s.Substring(p - comprimento - 1, comprimento), ref no_e);
+                root.left = no_e;
+
+            }
+
+            else if (char.IsDigit(s[p - 1]))
+            {
+                int contador = p - 1;
+                int digitos = 0;
+
+
+                while (char.IsDigit(s[contador]))
+                {
+                    digitos++;
+                    if (contador == 0) break;
+
+
+                    contador--;
+
+
+                }
+
+
+                no_e.number = Int32.Parse(s.Substring(contador, digitos));
+                root.left = no_e;
+
+
+
+
+            }
+        }
+        static void calculate(ref No root)
+        {
+
+
+
+            if (root.left.operation != null) calculate(ref root.left);
+            if (root.right.operation != null) calculate(ref root.right);
+
+
+            if (root.left.operation == null & root.right.operation == null)
+            {
+                int op1 = root.left.number;
+                int op2 = root.right.number;
+
+                if (root.operation == '+') root.number = op1 + op2;
+                else if (root.operation == '*') root.number = op1 * op2;
+                else if (root.operation == '/') root.number = op1 / op2;
+                root.operation = null;
+
+            }
 
 
         }
+
+
+
     }
 }
 
