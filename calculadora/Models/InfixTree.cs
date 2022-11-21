@@ -11,7 +11,7 @@ namespace calculadora
         // Function to build Expression Tree
        public static void build(String s,ref No root)
         {
-            int p = opCentral(s);
+            int p = InfixTreeRepositories.opCentral(s);
             root.operation = s[p];
 
 
