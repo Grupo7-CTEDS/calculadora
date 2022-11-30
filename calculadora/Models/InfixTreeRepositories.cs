@@ -17,7 +17,12 @@ namespace calculadora.Models
             '*',
             '-',
             '/',
-            '^'
+            '^',
+            's', //seno
+            'c', //cosseno
+            'm', //mod
+            'f' // fatorial
+
         };
 
         public static int opCentral(String s)
@@ -37,6 +42,25 @@ namespace calculadora.Models
 
             return -1;
         }
+        
+        private static double factorial(double n){
+            if (n <= 1.0) return 1;
+            else return n*factorial(n-1);
+        }
+
+        //methods for building the string for non trivial operators
+        public static void add_sine(ref string s){
+            s = s + '1' + 's';
+        }
+        public static void add_cos(ref string s){
+            s = s + '1' + 'c';
+        }
+
+
+
+      
+
+
     }
 }
 
