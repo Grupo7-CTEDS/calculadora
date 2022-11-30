@@ -43,7 +43,7 @@ namespace calculadora.Models
             return -1;
         }
         
-        private static double factorial(double n){
+        public static double factorial(double n){
             if (n <= 1.0) return 1;
             else return n*factorial(n-1);
         }

@@ -22,10 +22,23 @@ namespace calculadora.Models
         {
             return new Operation[]
             {
-            new Operation("((1+3)*(1^2))"),
+            new Operation
+            {
+                Id = Guid.NewGuid(),
+                op = "((1+3)*(1^2))",
+                creationTime = DateTime.Now
+
+            },
+
+            new Operation
+            {
+                Id = Guid.NewGuid(),
+                op = "((1+3)^(1^2))",
+                creationTime = DateTime.Now
+
+            }
 
 
-            new Operation("((6/2)+1)")
             };
         }
     }
