@@ -6,7 +6,38 @@
         xmlns:local="clr-namespace:calculadora"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Name ="NewOperationGrid">
+
+        <Button
+            Height="60"
+            Width="240"
+            Content="teste"
+            FontSize="18"
+            Cursor="Hand" Margin="120,100,120,0" Click="ListOperations" RenderTransformOrigin="0.537,-1.193" VerticalAlignment="Top"
+            >
+        </Button>
+
+        <TextBox Margin="0,335,0,39" 
+                 Width="360"
+                 TextWrapping="Wrap"
+                 HorizontalAlignment="Center"
+                 AcceptsReturn="True"
+                 Height="60" 
+                 FontSize="16"
+                 Text="{Binding op}">
+        </TextBox>
+
+        <Button
+            Height="60"
+            Width="240"
+            Content="salvar"
+            FontSize="18"
+            Cursor="Hand" Margin="280,217,280,0" Click="SaveOperation"  VerticalAlignment="Top"
+            >
+        </Button>
 
     </Grid>
+
+
+
 </Window>
