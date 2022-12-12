@@ -15,13 +15,18 @@ using System.Windows.Shapes;
 namespace calculadora
 {
     /// <summary>
-    /// Interaction logic for PersistenciaContas.xaml
+    /// Lógica interna para PersistenciaContas.xaml
     /// </summary>
     public partial class PersistenciaContas : Window
     {
         public PersistenciaContas()
         {
             InitializeComponent();
+        }
+        private void btnToCloseW2_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.w2 = 0;
+            Close();
         }
     }
 }
