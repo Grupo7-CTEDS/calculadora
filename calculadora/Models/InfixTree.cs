@@ -114,7 +114,7 @@ namespace calculadora
 
             }
         }
-         static void calculate(ref No root)
+         public static void calculate(ref No root)
         {
 
 

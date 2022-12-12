@@ -1,4 +1,5 @@
-﻿using System;
+﻿using calculadora.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -342,85 +343,15 @@ namespace calculadora
 
         private void btnIgual_Click(object sender, RoutedEventArgs e)
         {
-            string resultadoConvertido = "";
-            int resultado = 0;
-            int numero1 = 0;
-            int numero2 = 0;
-            string operador = "";
+
             string conta = txtBox.Text;
 
-            labelContas.Content = txtBox.Text;
+            No raiz = new No();
+            InfixTree.build(conta, ref raiz);
 
-            if (conta.Contains('+'))
-            {
-                operador = "+";
-            }
-            else if (conta.Contains('-'))
-            {
-                operador = "-";
-            }
-            else if (conta.Contains('x'))
-            {
-                operador = "x";
-            }
-            else if (conta.Contains('/'))
-            {
-                operador = "/";
-            }
-            else if (conta.Contains('÷'))
-            {
-                operador = "÷";
-            }
-            else if (conta.Contains('%'))
-            {
-                operador = "%";
-            }
-            else if (conta.Contains("√()"))
-            {
-                operador = "√()";
-            }
-            else
-            {
-                MessageBox.Show("Digite um operador válido!", "ERRO!", MessageBoxButton.OK);
-            }
+            InfixTree.calculate(ref raiz);
 
-
-            string N1 = conta.Substring(0, conta.IndexOf(operador));
-            numero1 = (int)Int64.Parse(N1);
-
-            string N2 = conta.Substring(conta.LastIndexOf(operador) + 1);
-            numero2 = (int)Int64.Parse(N2);
-
-            switch (operador)
-            {
-                case "+":
-                    resultado = numero1 + numero2;
-                    break;
-                case "-":
-                    resultado = numero1 - numero2;
-                    break;
-                case "x":
-                    resultado = numero1 * numero2;
-                    break;
-                case "/":
-                    resultado = numero1 / numero2;
-                    break;
-                case "÷":
-                    resultado = numero1 / numero2;
-                    break;
-                case "%":
-                    double parte1 = numero1 * numero2;
-                    resultado = (int)(parte1 / 100);
-                    //int percentComplete = (int)Math.Round((double)(100 * numero1) / numero2);
-                    //resultado = percentComplete;
-                    break;
-                case "√()":
-                    resultado = (numero1 / numero2) * 100;
-                    break;
-
-            }
-            resultadoConvertido = resultado.ToString();
-            txtBox.Text = resultadoConvertido;
+            txtBox.Text = raiz.number.ToString();
         }
 
         private void btnDiv_Click(object sender, RoutedEventArgs e)
