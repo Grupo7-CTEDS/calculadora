@@ -34,31 +34,6 @@ namespace calculadora
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Igual_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Igual.Background = Brushes.Red;
-        }
-
-        private void Igual_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Igual.Background = Brushes.IndianRed;
-        }
-
-        private void Igual_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            Igual.Background = Brushes.Red;
-        }
-
-        private void Igual_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            Igual.Background = Brushes.IndianRed;
-        }
-
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             System.Environment.Exit(1);
@@ -348,6 +323,119 @@ namespace calculadora
         private void btnErase_Click(object sender, RoutedEventArgs e)
         {
             txtBox.Text = "";
+        }
+
+        private void btnAdicao_Click(object sender, RoutedEventArgs e)
+        {
+            txtBox.AppendText("+");
+        }
+
+        private void btnSubtracao_Click(object sender, RoutedEventArgs e)
+        {
+            txtBox.AppendText("-");
+        }
+
+        private void btnMultiplicacao_Click(object sender, RoutedEventArgs e)
+        {
+            txtBox.AppendText("x");
+        }
+
+        private void btnIgual_Click(object sender, RoutedEventArgs e)
+        {
+            string resultadoConvertido = "";
+            int resultado = 0;
+            int numero1 = 0;
+            int numero2 = 0;
+            string operador = "";
+            string conta = txtBox.Text;
+
+            labelContas.Content = txtBox.Text;
+
+            if (conta.Contains('+'))
+            {
+                operador = "+";
+            }
+            else if (conta.Contains('-'))
+            {
+                operador = "-";
+            }
+            else if (conta.Contains('x'))
+            {
+                operador = "x";
+            }
+            else if (conta.Contains('/'))
+            {
+                operador = "/";
+            }
+            else if (conta.Contains('÷'))
+            {
+                operador = "÷";
+            }
+            else if (conta.Contains('%'))
+            {
+                operador = "%";
+            }
+            else if (conta.Contains("√()"))
+            {
+                operador = "√()";
+            }
+            else
+            {
+                MessageBox.Show("Digite um operador válido!", "ERRO!", MessageBoxButton.OK);
+            }
+
+
+            string N1 = conta.Substring(0, conta.IndexOf(operador));
+            numero1 = (int)Int64.Parse(N1);
+
+            string N2 = conta.Substring(conta.LastIndexOf(operador) + 1);
+            numero2 = (int)Int64.Parse(N2);
+
+            switch (operador)
+            {
+                case "+":
+                    resultado = numero1 + numero2;
+                    break;
+                case "-":
+                    resultado = numero1 - numero2;
+                    break;
+                case "x":
+                    resultado = numero1 * numero2;
+                    break;
+                case "/":
+                    resultado = numero1 / numero2;
+                    break;
+                case "÷":
+                    resultado = numero1 / numero2;
+                    break;
+                case "%":
+                    double parte1 = numero1 * numero2;
+                    resultado = (int)(parte1 / 100);
+                    //int percentComplete = (int)Math.Round((double)(100 * numero1) / numero2);
+                    //resultado = percentComplete;
+                    break;
+                case "√()":
+                    resultado = (numero1 / numero2) * 100;
+                    break;
+
+            }
+            resultadoConvertido = resultado.ToString();
+            txtBox.Text = resultadoConvertido;
+        }
+
+        private void btnDiv_Click(object sender, RoutedEventArgs e)
+        {
+            txtBox.AppendText("÷");
+        }
+
+        private void btnPorcentagem_Click(object sender, RoutedEventArgs e)
+        {
+            txtBox.AppendText("%");
+        }
+
+        private void btnRaizQuadrada_Click(object sender, RoutedEventArgs e)
+        {
+            txtBox.AppendText("√()");
         }
 
         //public static void VisibilidadeDots()
