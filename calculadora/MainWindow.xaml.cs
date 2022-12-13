@@ -24,113 +24,124 @@ namespace calculadora
 
     public partial class MainWindow : Window
     {
-
         string resultadoConvertido = "";
         public static PersistenciaContas TelaBanco;
         public static int w2 = 0;
-        
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
+      
+        private void btnAdicao_Click(object sender, RoutedEventArgs e)
         {
-            System.Environment.Exit(1);
+            LimparContasAnteriores();
+            boxContas1.AppendText("+");
         }
 
+        private void btnSubtracao_Click(object sender, RoutedEventArgs e)
+        {
+            LimparContasAnteriores();
+            boxContas1.AppendText("-");
+        }
+
+        private void btnMultiplicacao_Click(object sender, RoutedEventArgs e)
+        {
+            LimparContasAnteriores();
+            boxContas1.AppendText("x");
+        }
+
+        private void btnDiv_Click(object sender, RoutedEventArgs e)
+        {
+            LimparContasAnteriores();
+            boxContas1.AppendText("÷");
+        }
+
+        private void btnPorcentagem_Click(object sender, RoutedEventArgs e)
+        {
+            LimparContasAnteriores();
+            boxContas1.AppendText("%");
+        }
+
+        private void btnRaizQuadrada_Click(object sender, RoutedEventArgs e)
+        {
+            LimparContasAnteriores();
+            boxContas1.AppendText("√()");
+        }
+
+        private void btnParentesesDireita_Click(object sender, RoutedEventArgs e)
+        {
+            LimparContasAnteriores();
+            boxContas1.AppendText("(");
+        }
+
+        private void btnParentesesEsquerda_Click(object sender, RoutedEventArgs e)
+        {
+            LimparContasAnteriores();
+            boxContas1.AppendText(")");
+        }
+        private void btnZero_Click(object sender, RoutedEventArgs e)
+        {
+            LimparContasAnteriores();
+            boxContas1.AppendText("0");
+        }
         private void btnUm_Click(object sender, RoutedEventArgs e)
         {
-            txtBox.AppendText("1");
+            LimparContasAnteriores();
+            boxContas1.AppendText("1");
         }
-
-        public void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            //if (e.ChangedButton == MouseButton.Left)
-            //{
-            //    MainWindow primeiraTela = new MainWindow();
-            //    this.DragMove();
-            //}
-            //if (w2 == 1)
-            //{
-            //    Configs Mover2 = new();
-            //    Mover2.segundaTela_MouseDown(sender, e);
-
-
-            //}
-        }
-
-
-
-        private void Window_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            //if (this.WindowState == System.Windows.WindowState.Normal)
-            //{
-            //    this.WindowState = System.Windows.WindowState.Maximized;
-            //}
-            //else
-            //{
-            //    this.WindowState = System.Windows.WindowState.Normal;
-            //}
-        }
-
         private void btnDois_Click(object sender, RoutedEventArgs e)
         {
-            txtBox.AppendText("2");
+            LimparContasAnteriores();
+            boxContas1.AppendText("2");
         }
 
         private void btnTres_Click(object sender, RoutedEventArgs e)
         {
-            txtBox.AppendText("3");
+            LimparContasAnteriores();
+            boxContas1.AppendText("3");
         }
-
-        private void backspace_Click(object sender, RoutedEventArgs e)
+        private void btnQuatro_Click(object sender, RoutedEventArgs e)
         {
-            if (txtBox.Text.Length > 0)
-            {
-                var text = txtBox.Text;
-                txtBox.Text = text.Remove(text.Length - 1);
-            }
+            LimparContasAnteriores();
+            boxContas1.AppendText("4");
         }
-
-        private void btnZero_Click(object sender, RoutedEventArgs e)
+        private void btnCinco_Click(object sender, RoutedEventArgs e)
         {
-            txtBox.AppendText("0");
+            LimparContasAnteriores();
+            boxContas1.AppendText("5");
         }
 
         private void btnSeis_Click(object sender, RoutedEventArgs e)
         {
-            txtBox.AppendText("6");
+            LimparContasAnteriores();
+            boxContas1.AppendText("6");
         }
-
-        private void btnCinco_Click(object sender, RoutedEventArgs e)
+        private void btnSete_Click(object sender, RoutedEventArgs e)
         {
-            txtBox.AppendText("5");
+            LimparContasAnteriores();
+            boxContas1.AppendText("7");
         }
-
-        private void btnQuatro_Click(object sender, RoutedEventArgs e)
+        private void 
+            btnOito_Click(object sender, RoutedEventArgs e)
         {
-            txtBox.AppendText("4");
+            LimparContasAnteriores();
+            boxContas1.AppendText("8");
         }
 
         private void btnNove_Click(object sender, RoutedEventArgs e)
         {
-            txtBox.AppendText("9");
+            LimparContasAnteriores();
+            boxContas1.AppendText("9");
+        }
+        private void btnPonto_Click(object sender, RoutedEventArgs e)
+        {
+            //boxContas1.AppendText(".");
         }
 
-        private void btnOito_Click(object sender, RoutedEventArgs e)
+        private void boxContas1_KeyDown(object sender, KeyEventArgs e)
         {
-            txtBox.AppendText("8");
-        }
-
-        private void btnSete_Click(object sender, RoutedEventArgs e)
-        {
-            txtBox.AppendText("7");
-        }
-
-        private void txtBox_KeyDown(object sender, KeyEventArgs e)
-        {
-
+            LimparContasAnteriores();
             var key = (System.Windows.Input.KeyEventArgs)e;
 
             bool nonNumberEntered = false;
@@ -167,7 +178,7 @@ namespace calculadora
             }
             //Validar se texto formato está correto
             string caracterDigitado = KeycodeToChar((int)e.Key);
-            string numeroTexto = txtBox.Text + caracterDigitado;
+            string numeroTexto = boxContas1.Text + caracterDigitado;
             //double valorEsperado;
 
             //if (!double.TryParse(numeroTexto, out valorEsperado))
@@ -182,8 +193,8 @@ namespace calculadora
                 //Cancela a insersao
                 e.Handled = true;
             }
-
-
+ 
+     
 
         }
 
@@ -310,78 +321,69 @@ namespace calculadora
 
         private void btnDotsIcon_Click(object sender, RoutedEventArgs e)
         {
-            //VisibilidadeDots();
 
             if (w2 == 0)
             {
-                dots = new(); ;
-                dots.Show();
+                TelaBanco = new(); ;
+                TelaBanco.Show();
                 w2 = 1;
             }
-        }
-
-        private void btnErase_Click(object sender, RoutedEventArgs e)
-        {
-            txtBox.Text = "";
-        }
-
-        private void btnAdicao_Click(object sender, RoutedEventArgs e)
-        {
-            txtBox.AppendText("+");
-        }
-
-        private void btnSubtracao_Click(object sender, RoutedEventArgs e)
-        {
-            txtBox.AppendText("-");
-        }
-
-        private void btnMultiplicacao_Click(object sender, RoutedEventArgs e)
-        {
-            txtBox.AppendText("x");
         }
 
         private void btnIgual_Click(object sender, RoutedEventArgs e)
         {
 
-            string conta = txtBox.Text;
+            string conta = boxContas1.Text;
 
             No raiz = new No();
             InfixTree.build(conta, ref raiz);
 
             InfixTree.calculate(ref raiz);
 
-            txtBox.Text = raiz.number.ToString();
+            boxContas1.Text = raiz.number.ToString();
         }
 
-        private void btnDiv_Click(object sender, RoutedEventArgs e)
+        private void backspace_Click(object sender, RoutedEventArgs e)
         {
-            txtBox.AppendText("÷");
+            if (boxContas1.Text.Length > 0)
+            {
+                var text = boxContas1.Text;
+                boxContas1.Text = text.Remove(text.Length - 1);
+            }
         }
-
-        private void btnPorcentagem_Click(object sender, RoutedEventArgs e)
+        private void btnErase_Click(object sender, RoutedEventArgs e)
         {
-            txtBox.AppendText("%");
+            boxContas1.Text = "";
         }
-
-        private void btnRaizQuadrada_Click(object sender, RoutedEventArgs e)
+        private void LimparContasAnteriores()
         {
-            txtBox.AppendText("√()");
+            if (boxContas1.Text.Equals(resultadoConvertido))
+            {
+                boxContas1.Text = "";
+                labelContas.Content = "";
+                resultadoConvertido = "";
+            }
+        }
+        public void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            //if (e.ChangedButton == MouseButton.Left)
+            //{
+            //    MainWindow primeiraTela = new MainWindow();
+            //    this.DragMove();
+            //}
+            //if (w2 == 1)
+            //{
+            //    Configs Mover2 = new();
+            //    Mover2.segundaTela_MouseDown(sender, e);
+
+
+            //}
+        }
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            System.Environment.Exit(1);
         }
 
-        //public static void VisibilidadeDots()
-        //{
-        //    if (w2 == 0)
-        //    {
-        //        Configs dots = new(); ;
-        //        dots.Show();
-        //        btnDotsIcon.Visibility = Visibility.Collapsed;
-        //    }
-        //    else if (w2 == 1)
-        //    {
-        //        btnDotsIcon.Visibility = Visibility.Visible;
-        //        w2 = 0;
-        //    }
-
-        //}
+        
     }
 }
