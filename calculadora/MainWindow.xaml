@@ -61,7 +61,7 @@
                 Height="47" Margin="149,466,0,0" VerticalAlignment="Top" 
                 Width="70" Grid.ColumnSpan="2"/>
 
-       <Button Name="btnPonto" Click="btnPonto_Click" Content="." FontSize="25" Background="White"  HorizontalAlignment="Left"
+        <Button Name="btnPonto" Click="btnPonto_Click" Content="." FontSize="25" Background="White"  HorizontalAlignment="Left"
                 Height="47" Margin="33,466,0,0" VerticalAlignment="Top"
                 Width="70" Grid.Column="1"/>
 
@@ -126,7 +126,7 @@
             </Button.Background>
         </Button>
 
-        <TextBox Name="boxContas1" KeyDown="boxContas1_KeyDown" BorderThickness="0"
+        <TextBox Name="boxContas1"  BorderThickness="0"
                  FontSize="31" Grid.ColumnSpan="2" HorizontalAlignment="Left"
                  Height="40" Margin="2,88,0,0" Text=""
                  VerticalAlignment="Top" Width="361" BorderBrush="White" TextAlignment="Right"/>
@@ -144,7 +144,7 @@
             </Button.Background>
         </Button>
 
-        <Button Content="mod" FontSize="25" Background="DarkSlateBlue" Opacity="0.7"
+        <Button Name="btnMod" Click="btnMod_Click" Content="mod" FontSize="25" Background="DarkSlateBlue" Opacity="0.7"
                 Foreground="White" HorizontalAlignment="Left" Height="46"
                 Margin="105,228,0,0" VerticalAlignment="Top" Width="70"
                 Grid.Column="1" BorderBrush="DarkSlateBlue"/>
@@ -178,7 +178,7 @@
                 VerticalAlignment="Top" Width="70"
                 BorderBrush="DarkSlateBlue" Click="btnExp_Click"/>
 
-        <Button Content="TT" FontSize="25" Background="DarkSlateBlue" Opacity="0.7"
+        <Button Content="π" FontSize="25" Background="DarkSlateBlue" Opacity="0.7"
                 Foreground="White" HorizontalAlignment="Left" Height="46"
                 Margin="5,324,0,0" VerticalAlignment="Top" Width="70"
                 BorderBrush="DarkSlateBlue" Click="btnPi_Click"/>
@@ -193,12 +193,12 @@
                 Margin="77,276,0,0" VerticalAlignment="Top" Width="70"
                 BorderBrush="DarkSlateBlue"/>
 
-        <Button Content="n!" FontSize="25" Background="DarkSlateBlue" Opacity="0.7"
+        <Button Name="btnFatorial" Click="btnFatorial_Click" Content="n!" FontSize="25" Background="DarkSlateBlue" Opacity="0.7"
                 Foreground="White" HorizontalAlignment="Left" Height="46"
                 Margin="33,228,0,0" VerticalAlignment="Top" Width="70"
                 BorderBrush="DarkSlateBlue" Grid.Column="1"/>
 
-                <Button Name="btnParentesesEsquerda" Click="btnParentesesEsquerda_Click" Content=")" FontSize="25" Background="DarkSlateBlue"
+        <Button Name="btnParentesesEsquerda" Click="btnParentesesEsquerda_Click" Content=")" FontSize="25" Background="DarkSlateBlue"
                 Opacity="0.7" Foreground="White" HorizontalAlignment="Left"
                 Height="46" Margin="149,276,0,0" VerticalAlignment="Top"
                 Width="70" BorderBrush="DarkSlateBlue"
@@ -209,7 +209,7 @@
                 Margin="33,276,0,0" VerticalAlignment="Top" Width="70"
                 BorderBrush="DarkSlateBlue" Grid.Column="1"/>
 
-        <Button Content="exp" FontSize="25" Background="DarkSlateBlue" Opacity="0.7"
+        <Button Name="btnExp" Click="btnExponenciacao_Click" Content="exp" FontSize="25" Background="DarkSlateBlue" Opacity="0.7"
                 Foreground="White" HorizontalAlignment="Left" Height="46"
                 Margin="149,228,0,0" VerticalAlignment="Top" Width="70"
                 BorderBrush="DarkSlateBlue" Grid.ColumnSpan="2"/>
@@ -253,6 +253,16 @@
         <Label Name="labelContas" HorizontalContentAlignment="Right" Background="White"
                FontSize="18" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="35"
                Margin="2,53,0,0" VerticalAlignment="Top" Width="361"/>
+        
+        <Button x:Name="btnSeno" Click="btnSeno_Click" Content="sen" FontSize="25" Background="DarkSlateBlue" Opacity="0.7"
+            Foreground="White" HorizontalAlignment="Left" Height="46"
+            Margin="77,228,0,0" VerticalAlignment="Top" Width="70"
+            BorderBrush="DarkSlateBlue"/>
+        
+        <Button x:Name="btnCos" Click="btnCos_Click" Content="cos" FontSize="25" Background="DarkSlateBlue" Opacity="0.7"
+            Foreground="White" HorizontalAlignment="Left" Height="46"
+            Margin="5,228,0,0" VerticalAlignment="Top" Width="70"
+            BorderBrush="DarkSlateBlue"/>
 
 
 
