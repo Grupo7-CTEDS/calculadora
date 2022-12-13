@@ -123,8 +123,7 @@ namespace calculadora
             
             boxContas1.AppendText("7");
         }
-        private void 
-            btnOito_Click(object sender, RoutedEventArgs e)
+        private void btnOito_Click(object sender, RoutedEventArgs e)
         {
             
             boxContas1.AppendText("8");
@@ -137,7 +136,26 @@ namespace calculadora
         }
         private void btnPonto_Click(object sender, RoutedEventArgs e)
         {
-            //boxContas1.AppendText(".");
+            boxContas1.AppendText(".");
+        }
+
+        private void btnLn_Click(object sender, RoutedEventArgs e)
+        {
+            boxContas1.AppendText("ln");
+        }
+
+        private void btnLog_Click(object sender, RoutedEventArgs e)
+        {
+            boxContas1.AppendText("log");
+        }
+
+        private void btnExp_Click(object sender, RoutedEventArgs e)
+        {
+            boxContas1.AppendText("^");
+        }
+        private void btnPi_Click(object sender, RoutedEventArgs e)
+        {
+            boxContas1.AppendText("pi");
         }
 
         private void boxContas1_KeyDown(object sender, KeyEventArgs e)
@@ -191,7 +209,7 @@ namespace calculadora
 
             if (nonNumberEntered)
             {
-                //Cancela a insersao
+                //Cancela a insercao
                 e.Handled = true;
             }
  
@@ -385,6 +403,5 @@ namespace calculadora
             System.Environment.Exit(1);
         }
 
-        
     }
 }

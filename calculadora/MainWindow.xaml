@@ -115,7 +115,7 @@
         <Button Content="ln" FontSize="25" Background="DarkSlateBlue" Opacity="0.7"
                 Foreground="White" HorizontalAlignment="Left" Height="47"
                 Margin="5,466,0,0" VerticalAlignment="Top"
-                Width="70" BorderBrush="DarkSlateBlue"/>
+                Width="70" BorderBrush="DarkSlateBlue" Click="btnLn_Click"/>
         <Label  Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="51" Margin="2,2,0,0" VerticalAlignment="Top" Width="361" Background="White"/>
 
         <Button Name="CloseButton" BorderThickness="0" FontSize="32"
@@ -171,17 +171,17 @@
         <Button Content="log" FontSize="25" Background="DarkSlateBlue" Opacity="0.7"
                 Foreground="White" HorizontalAlignment="Left" Height="46" Margin="5,418,0,0"
                 VerticalAlignment="Top" Width="70"
-                BorderBrush="DarkSlateBlue"/>
+                BorderBrush="DarkSlateBlue" Click="btnLog_Click"/>
 
-        <Button Content="Xy" FontSize="25" Background="DarkSlateBlue" Opacity="0.7"
+        <Button Content="^" FontSize="25" Background="DarkSlateBlue" Opacity="0.7"
                 Foreground="White" HorizontalAlignment="Left" Height="44" Margin="5,372,0,0"
                 VerticalAlignment="Top" Width="70"
-                BorderBrush="DarkSlateBlue"/>
+                BorderBrush="DarkSlateBlue" Click="btnExp_Click"/>
 
         <Button Content="TT" FontSize="25" Background="DarkSlateBlue" Opacity="0.7"
                 Foreground="White" HorizontalAlignment="Left" Height="46"
                 Margin="5,324,0,0" VerticalAlignment="Top" Width="70"
-                BorderBrush="DarkSlateBlue"/>
+                BorderBrush="DarkSlateBlue" Click="btnPi_Click"/>
 
         <Button Name="btnRaizQuadrada" Content="√()" Click="btnRaizQuadrada_Click" FontSize="25" Background="DarkSlateBlue" Opacity="0.7"
                 Foreground="White" HorizontalAlignment="Left" Height="46"
