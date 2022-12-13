@@ -54,4 +54,11 @@
 	</ItemGroup>
 
 
+	<ItemGroup>
+	  <Page Update="PersistenciaContas.xaml">
+	    <Generator></Generator>
+	    <XamlRuntime></XamlRuntime>
+	    <SubType></SubType>
+	  </Page>
+	</ItemGroup>
 </Project>

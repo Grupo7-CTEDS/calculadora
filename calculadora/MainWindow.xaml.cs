@@ -22,14 +22,13 @@ using static System.Net.Mime.MediaTypeNames;
 namespace calculadora
 {
 
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
 
-        public static Configs dots;
+        string resultadoConvertido = "";
+        public static PersistenciaContas TelaBanco;
         public static int w2 = 0;
+        
         public MainWindow()
         {
             InitializeComponent();
