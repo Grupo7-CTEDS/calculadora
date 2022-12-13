@@ -46,10 +46,10 @@ namespace calculadora
             {
                 int digitos = 0;
 
-                    while (char.IsDigit(s[p + 1 + digitos]) | s[p+1+digitos] == '.')
+                    while (p + 1 + digitos < s.Length && (char.IsNumber(s[p + 1 + digitos]) | s[p+1+digitos] == '.'))
                     {
                     digitos++;
-                    if (p + 1 + digitos >= s.Length - 1) break;
+                    
                     }
                 
 
