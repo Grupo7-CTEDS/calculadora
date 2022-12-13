@@ -14,9 +14,9 @@ namespace calculadora.Models
         public static List<char> operations = new List<char>()
         {
             '+',
-            '*',
+            'x',
             '-',
-            '/',
+            '÷',
             '^',
             's', //seno
             'c', //cosseno

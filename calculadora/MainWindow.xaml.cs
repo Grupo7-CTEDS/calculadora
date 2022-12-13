@@ -27,6 +27,7 @@ namespace calculadora
         string resultadoConvertido = "";
         public static PersistenciaContas TelaBanco;
         public static int w2 = 0;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -35,103 +36,103 @@ namespace calculadora
       
         private void btnAdicao_Click(object sender, RoutedEventArgs e)
         {
-            LimparContasAnteriores();
+            
             boxContas1.AppendText("+");
         }
 
         private void btnSubtracao_Click(object sender, RoutedEventArgs e)
         {
-            LimparContasAnteriores();
+            
             boxContas1.AppendText("-");
         }
 
         private void btnMultiplicacao_Click(object sender, RoutedEventArgs e)
         {
-            LimparContasAnteriores();
+            
             boxContas1.AppendText("x");
         }
 
         private void btnDiv_Click(object sender, RoutedEventArgs e)
         {
-            LimparContasAnteriores();
+            
             boxContas1.AppendText("÷");
         }
 
         private void btnPorcentagem_Click(object sender, RoutedEventArgs e)
         {
-            LimparContasAnteriores();
+            
             boxContas1.AppendText("%");
         }
 
         private void btnRaizQuadrada_Click(object sender, RoutedEventArgs e)
         {
-            LimparContasAnteriores();
+            
             boxContas1.AppendText("√()");
         }
 
         private void btnParentesesDireita_Click(object sender, RoutedEventArgs e)
         {
-            LimparContasAnteriores();
+            
             boxContas1.AppendText("(");
         }
 
         private void btnParentesesEsquerda_Click(object sender, RoutedEventArgs e)
         {
-            LimparContasAnteriores();
+            
             boxContas1.AppendText(")");
         }
         private void btnZero_Click(object sender, RoutedEventArgs e)
         {
-            LimparContasAnteriores();
+            
             boxContas1.AppendText("0");
         }
         private void btnUm_Click(object sender, RoutedEventArgs e)
         {
-            LimparContasAnteriores();
+            
             boxContas1.AppendText("1");
         }
         private void btnDois_Click(object sender, RoutedEventArgs e)
         {
-            LimparContasAnteriores();
+            
             boxContas1.AppendText("2");
         }
 
         private void btnTres_Click(object sender, RoutedEventArgs e)
         {
-            LimparContasAnteriores();
+            
             boxContas1.AppendText("3");
         }
         private void btnQuatro_Click(object sender, RoutedEventArgs e)
         {
-            LimparContasAnteriores();
+            
             boxContas1.AppendText("4");
         }
         private void btnCinco_Click(object sender, RoutedEventArgs e)
         {
-            LimparContasAnteriores();
+            
             boxContas1.AppendText("5");
         }
 
         private void btnSeis_Click(object sender, RoutedEventArgs e)
         {
-            LimparContasAnteriores();
+            
             boxContas1.AppendText("6");
         }
         private void btnSete_Click(object sender, RoutedEventArgs e)
         {
-            LimparContasAnteriores();
+            
             boxContas1.AppendText("7");
         }
         private void 
             btnOito_Click(object sender, RoutedEventArgs e)
         {
-            LimparContasAnteriores();
+            
             boxContas1.AppendText("8");
         }
 
         private void btnNove_Click(object sender, RoutedEventArgs e)
         {
-            LimparContasAnteriores();
+            
             boxContas1.AppendText("9");
         }
         private void btnPonto_Click(object sender, RoutedEventArgs e)
