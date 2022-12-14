@@ -1,4 +1,5 @@
 ﻿using calculadora.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,8 +31,18 @@ namespace calculadora
         public static int w2 = 0;
         bool contaFeita = false;
 
-        public MainWindow()
+        private readonly Context context;
+
+
+
+        public MainWindow(Context context)
         {
+            this.context = context;
+            var OperationList = context.Operations.ToList();
+            foreach (var Operation in OperationList)
+            {
+                TelaBanco.persistenciaContas.AppendText(Operation.Text + "\n");
+            }
             InitializeComponent();
         }
 
@@ -215,7 +226,20 @@ namespace calculadora
 
             string conta = boxContas1.Text;
             labelContas.Content = boxContas1.Text + " =";
-            
+
+            Operation op = new Operation
+            {
+                Id = Guid.NewGuid(),
+                Text = conta,
+                CreationTime = DateTime.Now,
+            };
+            context.Operations.Add(op);
+            context.SaveChanges();
+
+            TelaBanco.persistenciaContas.AppendText(conta + "\n");
+            //var OperationList = context.Operations.ToList();
+            //TelaBanco.persistenciaContas.AppendText(OperationList[OperationList.Count-1].Text);
+
             No raiz = new No();
             InfixTree.build(InfixTreeRepositories.format(conta), ref raiz);
             InfixTree.calculate(ref raiz);
@@ -224,6 +248,8 @@ namespace calculadora
             resultado = raiz.number.ToString();
             contaFeita = true;
             InserirOperacaoExibicao();
+
+            //context.Operations.ExecuteDelete();
         }
 
         private void backspace_Click(object sender, RoutedEventArgs e)
