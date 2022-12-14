@@ -39,6 +39,7 @@
         <TextBox x:Name="persistenciaContas" x:FieldModifier="public" Text="" HorizontalAlignment="Center" FontSize="17" Height="164"
                  Margin="0,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top"
                  Width="193"/>
+        <Button x:Name ="ApagarHistorico" Content="Apagar historico" HorizontalAlignment="Left" Margin="49,426,0,0" VerticalAlignment="Top" Width="102" Click="ApagarHistorico_Click"/>
 
 
     </Grid>

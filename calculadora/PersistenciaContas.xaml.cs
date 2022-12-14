@@ -1,4 +1,6 @@
-﻿using System;
+﻿using calculadora.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +21,7 @@ namespace calculadora
     /// </summary>
     public partial class PersistenciaContas : Window
     {
+        
         public PersistenciaContas()
         {
             InitializeComponent();
@@ -27,6 +30,12 @@ namespace calculadora
         {
             MainWindow.w2 = 0;
             Hide();
+        }
+
+        private void ApagarHistorico_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.context.Operations.ExecuteDelete();
+            persistenciaContas.Text = "";
         }
     }
 }

@@ -31,13 +31,13 @@ namespace calculadora
         public static int w2 = 0;
         bool contaFeita = false;
 
-        private readonly Context context;
+        public static Context context;
 
 
 
-        public MainWindow(Context context)
+        public MainWindow(Context context_arg)
         {
-            this.context = context;
+            context = context_arg;
             var OperationList = context.Operations.ToList();
             foreach (var Operation in OperationList)
             {
@@ -80,7 +80,7 @@ namespace calculadora
         private void btnRaizQuadrada_Click(object sender, RoutedEventArgs e)
         {
             LimparContasAnteriores();
-            boxContas1.AppendText("√()");
+            boxContas1.AppendText("^0.5");
         }
 
         private void btnParentesesDireita_Click(object sender, RoutedEventArgs e)
@@ -249,7 +249,7 @@ namespace calculadora
             contaFeita = true;
             InserirOperacaoExibicao();
 
-            //context.Operations.ExecuteDelete();
+            
         }
 
         private void backspace_Click(object sender, RoutedEventArgs e)
