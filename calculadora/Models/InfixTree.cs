@@ -131,8 +131,9 @@ namespace calculadora
                 else if (root.operation == 'c') root.number = Math.Cos(op2);
                 else if (root.operation == 'L') root.number = Math.Log10(op2);
                 else if (root.operation == 'l') root.number = Math.Log(op2);
-                else if (root.operation == 'm') root.number = op1%op2;
+                else if (root.operation == 'm') root.number = op1 % op2;
                 else if (root.operation == 'f') root.number = InfixTreeRepositories.factorial(op2);
+                else if (root.operation == '%') root.number = op1 * op2 / 100.0;
                 root.operation = null;
 
             }

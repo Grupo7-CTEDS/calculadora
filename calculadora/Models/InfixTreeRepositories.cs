@@ -24,7 +24,8 @@ namespace calculadora.Models
             'l',
             'L',
             'm', //mod
-            'f' // fatorial
+            'f', // fatorial
+            '%'
 
         };
 

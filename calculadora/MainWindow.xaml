@@ -183,7 +183,7 @@
                 Margin="5,324,0,0" VerticalAlignment="Top" Width="70"
                 BorderBrush="DarkSlateBlue" Click="btnPi_Click"/>
 
-        <Button Name="btnRaizQuadrada" Content="√()" Click="btnRaizQuadrada_Click" FontSize="25" Background="DarkSlateBlue" Opacity="0.7"
+        <Button Name="btnRaizQuadrada" Content="√" Click="btnRaizQuadrada_Click" FontSize="25" Background="DarkSlateBlue" Opacity="0.7"
                 Foreground="White" HorizontalAlignment="Left" Height="46"
                 Margin="5,276,0,0" VerticalAlignment="Top" Width="70"
                 BorderBrush="DarkSlateBlue"/>
