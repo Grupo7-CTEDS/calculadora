@@ -355,7 +355,7 @@ namespace calculadora
             string conta = boxContas1.Text;
 
             No raiz = new No();
-            InfixTree.build(conta, ref raiz);
+            InfixTree.build(InfixTreeRepositories.format(conta), ref raiz);
 
             InfixTree.calculate(ref raiz);
 
