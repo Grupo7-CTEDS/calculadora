@@ -26,7 +26,7 @@ namespace calculadora
         private void btnToCloseW2_Click(object sender, RoutedEventArgs e)
         {
             MainWindow.w2 = 0;
-            Close();
+            Hide();
         }
     }
 }
