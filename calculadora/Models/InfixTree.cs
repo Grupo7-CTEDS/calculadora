@@ -38,7 +38,7 @@ namespace calculadora
 
                 } while (contador != 0);
 
-                build(s.Substring(p + 2, comprimento-2), ref no_d);//envia os parenteses das bordas
+                build(s.Substring(p + 1, comprimento), ref no_d);//nao envia os parenteses das bordas
                 root.right = no_d;
 
             }
@@ -80,29 +80,24 @@ namespace calculadora
 
                     comprimento++;
                 } while (contador != 0);
-                comprimento = comprimento - 2;
+                
 
 
-                build(s.Substring(p-comprimento-1, comprimento), ref no_e);
+                build(s.Substring(p-comprimento, comprimento), ref no_e);
                 root.left = no_e;
 
             }
 
             else if (char.IsDigit(s[p - 1]))
             {
-                int contador = p - 1;
+                int contador = p;
                 int digitos = 0;
 
 
-                while (char.IsDigit(s[contador]) | s[contador] == '.')
+                while (contador != 0 && (char.IsDigit(s[contador-1]) || s[contador-1] == '.'))
                 {
                     digitos++;
-                    if (contador == 0) break;
-
-
                     contador--;
-                    
-
                 }
 
 

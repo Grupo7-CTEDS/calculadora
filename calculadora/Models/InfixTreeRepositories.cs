@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace calculadora.Models
 {
@@ -29,7 +30,9 @@ namespace calculadora.Models
 
         public static int opCentral(String s)
         {
-
+            s = s.Remove(0,1);
+            s = s.Remove(s.Length - 1,1);
+            
             int parentesesAbertos = 0;
             int p = 0;
 
@@ -37,7 +40,7 @@ namespace calculadora.Models
             {
                 if (s[p] == '(') parentesesAbertos++;
                 if (s[p] == ')') parentesesAbertos--;
-                if (parentesesAbertos == 0 & InfixTreeRepositories.operations.Contains(s[p])) return p;
+                if (parentesesAbertos == 0 & InfixTreeRepositories.operations.Contains(s[p])) return p+1;
 
                 p++;
             }
@@ -78,7 +81,6 @@ namespace calculadora.Models
         public static string format(string s)
         {
             String formatted = "";
-
 
             for (int i = 0; i < s.Length; i++)
             {
@@ -121,6 +123,25 @@ namespace calculadora.Models
                 else formatted += s[i];
 
             }
+
+
+            int parentesesAbertos = 0;
+            int p = 0;
+
+            while (p < formatted.Length)
+            {
+                if (formatted[p] == '(') parentesesAbertos++;
+                if (formatted[p] == ')') parentesesAbertos--;
+                if (parentesesAbertos == 0 && p != formatted.Length -1)
+                {
+                    formatted = formatted + ')';
+                    formatted = '(' + formatted;
+                    break;
+                }
+
+                p++;
+            }
+
 
 
             return formatted;
