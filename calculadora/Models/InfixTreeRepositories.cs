@@ -114,7 +114,8 @@ namespace calculadora.Models
 
                 else if (s[i] == 'm' && s[i + 1] == 'o' && s[i + 2] == 'd')
                 {
-                    append(ref formatted, s, 3, ref i, "1m");
+                    formatted = formatted + "m";
+                    i = i + 2;
                 }
 
                 else formatted += s[i];
