@@ -1,4 +1,5 @@
 ﻿using calculadora.Models;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -7,6 +8,7 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+
 using System.Windows;
 
 namespace calculadora
@@ -17,6 +19,7 @@ namespace calculadora
     public partial class App : Application
     {
         private readonly ServiceProvider serviceProvider;
+
 
         public App()
         {

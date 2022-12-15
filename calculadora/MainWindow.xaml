@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:calculadora"
         mc:Ignorable="d"
+
         Title="Calculadora" MouseDown="Window_MouseDown"
         Height="515" Width="365" WindowStartupLocation="CenterScreen" 
         AllowsTransparency="True" WindowStyle="None" Icon="/calculadoraIcone.png" >
@@ -264,9 +265,8 @@
             Margin="5,228,0,0" VerticalAlignment="Top" Width="70"
             BorderBrush="DarkSlateBlue"/>
 
-
-
-
-
     </Grid>
+
+
+
 </Window>

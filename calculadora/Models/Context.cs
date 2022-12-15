@@ -36,6 +36,7 @@ namespace calculadora.Models
                 Text = "((6/2)+1)",
                 CreationTime = DateTime.Now,
             }
+
             };
         }
     }
