@@ -38,7 +38,7 @@ namespace calculadora
 
                 } while (contador != 0);
 
-                build(s.Substring(p + 2, comprimento-2), ref no_d);//envia os parenteses das bordas
+                build(s.Substring(p + 1, comprimento), ref no_d);//nao envia os parenteses das bordas
                 root.right = no_d;
 
             }
@@ -46,10 +46,10 @@ namespace calculadora
             {
                 int digitos = 0;
 
-                    while (char.IsDigit(s[p + 1 + digitos]) | s[p+1+digitos] == '.')
+                    while (p + 1 + digitos < s.Length && (char.IsNumber(s[p + 1 + digitos]) | s[p+1+digitos] == '.'))
                     {
                     digitos++;
-                    if (p + 1 + digitos >= s.Length - 1) break;
+                    
                     }
                 
 
@@ -80,29 +80,24 @@ namespace calculadora
 
                     comprimento++;
                 } while (contador != 0);
-                comprimento = comprimento - 2;
+                
 
 
-                build(s.Substring(p-comprimento-1, comprimento), ref no_e);
+                build(s.Substring(p-comprimento, comprimento), ref no_e);
                 root.left = no_e;
 
             }
 
             else if (char.IsDigit(s[p - 1]))
             {
-                int contador = p - 1;
+                int contador = p;
                 int digitos = 0;
 
 
-                while (char.IsDigit(s[contador]) | s[contador] == '.')
+                while (contador != 0 && (char.IsDigit(s[contador-1]) || s[contador-1] == '.'))
                 {
                     digitos++;
-                    if (contador == 0) break;
-
-
                     contador--;
-                    
-
                 }
 
 
@@ -114,7 +109,7 @@ namespace calculadora
 
             }
         }
-         static void calculate(ref No root)
+         public static void calculate(ref No root)
         {
 
 
@@ -129,13 +124,16 @@ namespace calculadora
                 double op2 = root.right.number;
 
                 if (root.operation == '+') root.number = op1 + op2;
-                else if (root.operation == '*') root.number = op1 * op2;
-                else if (root.operation == '/') root.number = op1 / op2;
+                else if (root.operation == 'x') root.number = op1 * op2;
+                else if (root.operation == '÷') root.number = op1 / op2;
                 else if (root.operation == '^') root.number = Math.Pow(op1, op2);
                 else if (root.operation == 's') root.number = Math.Sin(op2);
                 else if (root.operation == 'c') root.number = Math.Cos(op2);
-                else if (root.operation == 'm') root.number = op1%op2;
+                else if (root.operation == 'L') root.number = Math.Log10(op2);
+                else if (root.operation == 'l') root.number = Math.Log(op2);
+                else if (root.operation == 'm') root.number = op1 % op2;
                 else if (root.operation == 'f') root.number = InfixTreeRepositories.factorial(op2);
+                else if (root.operation == '%') root.number = op1 * op2 / 100.0;
                 root.operation = null;
 
             }

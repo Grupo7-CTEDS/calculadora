@@ -1,7 +1,13 @@
 ﻿using calculadora.Models;
-using Microsoft.Extensions.DependencyInjection;
+
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
 
 using System.Windows;
 
@@ -14,13 +20,14 @@ namespace calculadora
     {
         private readonly ServiceProvider serviceProvider;
 
+
         public App()
         {
             ServiceCollection services = new();
 
             services.AddDbContext<Context>(options =>
             {
-                options.UseSqlite("Data source = Operation.db");
+                options.UseSqlite("Data source = Operations.db");
             });
 
             services.AddSingleton<MainWindow>();
@@ -32,6 +39,5 @@ namespace calculadora
             var mainWindow = serviceProvider.GetService<MainWindow>();
             mainWindow.Show();
         }
-
     }
 }

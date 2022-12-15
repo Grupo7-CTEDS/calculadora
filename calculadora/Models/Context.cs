@@ -25,19 +25,17 @@ namespace calculadora.Models
             new Operation
             {
                 Id = Guid.NewGuid(),
-                op = "((1+3)*(1^2))",
-                creationTime = DateTime.Now
-
+                CreationTime = DateTime.Now,
+                Text = "((1+2)x(3+2)"
             },
+
 
             new Operation
             {
                 Id = Guid.NewGuid(),
-                op = "((1+3)^(1^2))",
-                creationTime = DateTime.Now
-
+                Text = "((6/2)+1)",
+                CreationTime = DateTime.Now,
             }
-
 
             };
         }
