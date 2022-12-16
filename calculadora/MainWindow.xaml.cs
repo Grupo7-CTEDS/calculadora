@@ -49,30 +49,11 @@ namespace calculadora
             InitializeComponent();
 
             
-            NewOperationGrid.DataContext = newOperation;
+            
 
 
         }
 
-        private void ListOperations(object sender, RoutedEventArgs e)
-        {
-            List<Operation> OperationList = context.Operations.ToList();
-            MessageBox.Show(OperationList.Last().op);
-
-        }
-
-        private void SaveOperation(object sender, RoutedEventArgs e)
-        {
-            context.Operations.Add(newOperation);
-            context.SaveChanges();
-
-            newOperation = new Operation()
-            {
-                Id = Guid.NewGuid(),
-                creationTime = DateTime.Now
-            };
-            NewOperationGrid.DataContext = newOperation;
-        }
 
       
         private void btnAdicao_Click(object sender, RoutedEventArgs e)
