@@ -48,33 +48,10 @@ namespace calculadora
 
             InitializeComponent();
 
-            
-            NewOperationGrid.DataContext = newOperation;
 
 
         }
 
-        private void ListOperations(object sender, RoutedEventArgs e)
-        {
-            List<Operation> OperationList = context.Operations.ToList();
-            MessageBox.Show(OperationList.Last().op);
-
-        }
-
-        private void SaveOperation(object sender, RoutedEventArgs e)
-        {
-            context.Operations.Add(newOperation);
-            context.SaveChanges();
-
-            newOperation = new Operation()
-            {
-                Id = Guid.NewGuid(),
-                creationTime = DateTime.Now
-            };
-            NewOperationGrid.DataContext = newOperation;
-        }
-
-      
         private void btnAdicao_Click(object sender, RoutedEventArgs e)
         {
             LimparContasAnteriores();
@@ -264,7 +241,7 @@ namespace calculadora
             context.Operations.Add(op);
             context.SaveChanges();
 
-            TelaBanco.persistenciaContas.AppendText(conta + "\n");
+           
             //var OperationList = context.Operations.ToList();
             //TelaBanco.persistenciaContas.AppendText(OperationList[OperationList.Count-1].Text);
 
@@ -274,6 +251,7 @@ namespace calculadora
             
             boxContas1.Text = raiz.number.ToString();
             resultado = raiz.number.ToString();
+            TelaBanco.persistenciaContas.AppendText(conta + " = " + resultado + "\n");
             contaFeita = true;
             InserirOperacaoExibicao();
 
@@ -291,6 +269,7 @@ namespace calculadora
         private void btnErase_Click(object sender, RoutedEventArgs e)
         {
             boxContas1.Text = "";
+            labelContas.Content = "";
         }
         private void LimparContasAnteriores()
         {
