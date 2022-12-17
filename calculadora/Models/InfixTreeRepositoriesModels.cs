@@ -111,7 +111,7 @@ namespace calculadora.Models
 
                 else if (s[i] == 'p' && s[i + 1] == 'i')
                 {
-                    formatted = formatted + "1x" + Math.PI.ToString();
+                    formatted = formatted + "1x" + "3.141592";
                     i = i + 1;
                 }
 
@@ -120,7 +120,11 @@ namespace calculadora.Models
                     formatted = formatted + "m";
                     i = i + 2;
                 }
-
+                else if (s[i] == ('(') && s[i+1] == '-')
+                {
+                    formatted = formatted + "(0-";
+                    i = i + 1;
+                }
                 else formatted += s[i];
 
             }

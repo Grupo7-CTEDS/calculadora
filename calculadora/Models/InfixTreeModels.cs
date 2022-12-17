@@ -126,6 +126,7 @@ namespace calculadora
                 if (root.operation == '+') root.number = op1 + op2;
                 else if (root.operation == 'x') root.number = op1 * op2;
                 else if (root.operation == '÷') root.number = op1 / op2;
+                else if (root.operation == '-') root.number = op1 - op2;
                 else if (root.operation == '^') root.number = Math.Pow(op1, op2);
                 else if (root.operation == 's') root.number = Math.Sin(op2);
                 else if (root.operation == 'c') root.number = Math.Cos(op2);
