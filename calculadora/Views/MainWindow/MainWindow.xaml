@@ -8,7 +8,7 @@
 
         Title="Calculadora" MouseDown="Window_MouseDown"
         Height="515" Width="365" WindowStartupLocation="CenterScreen" 
-        AllowsTransparency="True" WindowStyle="None" Icon="/calculadoraIcone.png" >
+        AllowsTransparency="True" WindowStyle="None" Icon="/Content/Images/calculadoraIcone.png" >
     <Window.Background>
         <SolidColorBrush Opacity="0.7" Color="Black"/>
     </Window.Background>
@@ -43,7 +43,7 @@
                 Margin="105,372,0,0" VerticalAlignment="Top" Width="70" 
                 Grid.Column="1" BorderBrush="DarkSlateBlue" BorderThickness="0">
             <Button.Background>
-                <ImageBrush ImageSource="/subicon.png" Stretch="UniformToFill"/>
+                <ImageBrush ImageSource="/Content/Images/subicon.png" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
 
@@ -109,7 +109,7 @@
                 Margin="105,324,0,0" VerticalAlignment="Top" Width="70"
                 Grid.Column="1" BorderBrush="DarkSlateBlue" BorderThickness="0">
             <Button.Background>
-                <ImageBrush Stretch="Uniform" ImageSource="/multiplicacaoicon.png"/>
+                <ImageBrush Stretch="Uniform" ImageSource="/Content/Images/multiplicacaoicon.png"/>
             </Button.Background>
         </Button>
 
@@ -123,7 +123,7 @@
                 Click="CloseButton_Click" Margin="116,2,2,473"
                 Grid.Column="1" BorderBrush="White" >
             <Button.Background>
-                <ImageBrush ImageSource="/close.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="/Content/Images/close.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
 
@@ -141,7 +141,7 @@
                 VerticalAlignment="Top" Width="70" Grid.Column="1"
                 BorderBrush="DarkSlateBlue" BorderThickness="0">
             <Button.Background>
-                <ImageBrush Stretch="Uniform" ImageSource="/divisaoicon.png"/>
+                <ImageBrush Stretch="Uniform" ImageSource="/Content/Images/divisaoicon.png"/>
             </Button.Background>
         </Button>
 
@@ -165,7 +165,7 @@
                 VerticalAlignment="Top" Width="70" Grid.Column="1"
                 BorderBrush="DarkSlateBlue" BorderThickness="0">
             <Button.Background>
-                <ImageBrush Stretch="Uniform" ImageSource="/backspaceTrue.png"/>
+                <ImageBrush Stretch="Uniform" ImageSource="/Content/Images/backspaceTrue.png"/>
             </Button.Background>
         </Button>
 
@@ -221,7 +221,7 @@
                 Click="btnMinimize_Click" Margin="53,2,61,473"
                 Grid.Column="1" BorderBrush="White" >
             <Button.Background>
-                <ImageBrush ImageSource="/minimize.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="/Content/Images/minimize.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
 
@@ -230,7 +230,7 @@
             Margin="2,2,125,473"
             BorderBrush="White" >
             <Button.Background>
-                <ImageBrush ImageSource="/3dotsIcon.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="/Content/Images/3dotsIcon.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
 
@@ -247,7 +247,7 @@
             VerticalAlignment="Top" Width="70" Grid.Column="1"
             BorderBrush="DarkSlateBlue" BorderThickness="0">
             <Button.Background>
-                <ImageBrush Stretch="Uniform" ImageSource="/eraseIcone.png"/>
+                <ImageBrush Stretch="Uniform" ImageSource="/Content/Images/eraseIcone.png"/>
             </Button.Background>
         </Button>
 

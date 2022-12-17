@@ -4,18 +4,18 @@ using System.Collections.Generic;
 
 namespace calculadora
 {
-    public class InfixTree
+    public class InfixTreeModels
     {
 
 
         // Function to build Expression Tree
-       public static void build(String s,ref No root)
+       public static void build(String s,ref NoModels root)
         {
-            int p = InfixTreeRepositories.opCentral(s);
+            int p = InfixTreeRepositoriesModels.opCentral(s);
             root.operation = s[p];
 
 
-            No no_d = new No();
+            NoModels no_d = new NoModels();
             if (s[p + 1] == '(')
             {
                
@@ -58,7 +58,7 @@ namespace calculadora
 
             }
 
-            No no_e = new No();
+            NoModels no_e = new NoModels();
             if (s[p - 1] == ')')
             {
                 
@@ -109,7 +109,7 @@ namespace calculadora
 
             }
         }
-         public static void calculate(ref No root)
+         public static void calculate(ref NoModels root)
         {
 
 
@@ -132,7 +132,7 @@ namespace calculadora
                 else if (root.operation == 'L') root.number = Math.Log10(op2);
                 else if (root.operation == 'l') root.number = Math.Log(op2);
                 else if (root.operation == 'm') root.number = op1 % op2;
-                else if (root.operation == 'f') root.number = InfixTreeRepositories.factorial(op2);
+                else if (root.operation == 'f') root.number = InfixTreeRepositoriesModels.factorial(op2);
                 else if (root.operation == '%') root.number = op1 * op2 / 100.0;
                 root.operation = null;
 

@@ -28,7 +28,7 @@
         <Button Name="btnToCloseW2" Content="" BorderThickness="0" FontSize="32"
                 Click="btnToCloseW2_Click" Margin="0,0,134,475" BorderBrush="White" >
             <Button.Background>
-                <ImageBrush ImageSource="/3dotsIcon.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="/Content/Images/3dotsIcon.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
 

@@ -25,7 +25,7 @@ namespace calculadora
         {
             ServiceCollection services = new();
 
-            services.AddDbContext<Context>(options =>
+            services.AddDbContext<ContextModels>(options =>
             {
                 options.UseSqlite("Data source = Operations.db");
             });

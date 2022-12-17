@@ -1,13 +1,13 @@
 ﻿using System;
 namespace calculadora.Models
 {
-    public class No
+    public class NoModels
     {
         public Nullable<char> operation;
-        public No left, right;
+        public NoModels left, right;
         public double number;
 
-        public No()
+        public NoModels()
         {
             operation = null;
             left = null;

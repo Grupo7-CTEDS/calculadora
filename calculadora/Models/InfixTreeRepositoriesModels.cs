@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace calculadora.Models
 {
-	public class InfixTreeRepositories
+	public class InfixTreeRepositoriesModels
 	{
-		public InfixTreeRepositories()
+		public InfixTreeRepositoriesModels()
 		{
 
 		}
@@ -41,7 +41,7 @@ namespace calculadora.Models
             {
                 if (s[p] == '(') parentesesAbertos++;
                 if (s[p] == ')') parentesesAbertos--;
-                if (parentesesAbertos == 0 & InfixTreeRepositories.operations.Contains(s[p])) return p+1;
+                if (parentesesAbertos == 0 & InfixTreeRepositoriesModels.operations.Contains(s[p])) return p+1;
 
                 p++;
             }

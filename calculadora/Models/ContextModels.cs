@@ -3,26 +3,26 @@ using Microsoft.EntityFrameworkCore;
 
 namespace calculadora.Models
 {
-    public class Context : DbContext
+    public class ContextModels : DbContext
     {
-        public Context(DbContextOptions<Context> options) : base(options)
+        public ContextModels(DbContextOptions<ContextModels> options) : base(options)
         {
             Database.EnsureCreated();
         }
 
-        public DbSet<Operation> Operations { get; set; }
+        public DbSet<OperationModels> Operations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Operation>().HasData(GetProducts());
+            modelBuilder.Entity<OperationModels>().HasData(GetProducts());
             base.OnModelCreating(modelBuilder);
         }
 
-        private static Operation[] GetProducts()
+        private static OperationModels[] GetProducts()
         {
-            return new Operation[]
+            return new OperationModels[]
             {
-            new Operation
+            new OperationModels
             {
                 Id = Guid.NewGuid(),
                 CreationTime = DateTime.Now,
@@ -30,7 +30,7 @@ namespace calculadora.Models
             },
 
 
-            new Operation
+            new OperationModels
             {
                 Id = Guid.NewGuid(),
                 Text = "((6/2)+1)",

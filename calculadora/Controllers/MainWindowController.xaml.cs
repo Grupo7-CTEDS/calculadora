@@ -33,11 +33,11 @@ namespace calculadora
         public static int w2 = 0;
         bool contaFeita = false;
 
-        public static Context context;
+        public static ContextModels context;
 
 
 
-        public MainWindow(Context context_arg)
+        public MainWindow(ContextModels context_arg)
         {
             context = context_arg;
             var OperationList = context.Operations.ToList();
@@ -48,14 +48,9 @@ namespace calculadora
 
             InitializeComponent();
 
-            
-            
-
 
         }
 
-
-      
         private void btnAdicao_Click(object sender, RoutedEventArgs e)
         {
             LimparContasAnteriores();
@@ -236,7 +231,7 @@ namespace calculadora
             string conta = boxContas1.Text;
             labelContas.Content = boxContas1.Text + " =";
 
-            Operation op = new Operation
+            OperationModels op = new OperationModels
             {
                 Id = Guid.NewGuid(),
                 Text = conta,
@@ -245,16 +240,17 @@ namespace calculadora
             context.Operations.Add(op);
             context.SaveChanges();
 
-            TelaBanco.persistenciaContas.AppendText(conta + "\n");
+           
             //var OperationList = context.Operations.ToList();
             //TelaBanco.persistenciaContas.AppendText(OperationList[OperationList.Count-1].Text);
 
-            No raiz = new No();
-            InfixTree.build(InfixTreeRepositories.format(conta), ref raiz);
-            InfixTree.calculate(ref raiz);
+            NoModels raiz = new NoModels();
+            InfixTreeModels.build(InfixTreeRepositoriesModels.format(conta), ref raiz);
+            InfixTreeModels.calculate(ref raiz);
             
             boxContas1.Text = raiz.number.ToString();
             resultado = raiz.number.ToString();
+            TelaBanco.persistenciaContas.AppendText(conta + " = " + resultado + "\n");
             contaFeita = true;
             InserirOperacaoExibicao();
 
@@ -272,6 +268,7 @@ namespace calculadora
         private void btnErase_Click(object sender, RoutedEventArgs e)
         {
             boxContas1.Text = "";
+            labelContas.Content = "";
         }
         private void LimparContasAnteriores()
         {
