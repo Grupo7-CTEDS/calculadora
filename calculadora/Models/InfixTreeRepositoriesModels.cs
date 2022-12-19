@@ -79,6 +79,26 @@ namespace calculadora.Models
             i = i + expSize - 1 + size;
         }
 
+        public static bool isFormatted(string s)
+        {
+            for (int i = 0; i < s.Length; i++)
+            {
+
+
+                if (s[i] == 'c' && s[i + 1] == 'o' && s[i + 2] == 's') return false;
+                else if (s[i] == 's' && s[i + 1] == 'e' && s[i + 2] == 'n') return false;
+                else if (s[i] == 'l' && s[i + 1] == 'n') return false;
+                else if (s[i] == 'l' && s[i + 1] == 'o' && s[i + 2] == 'g') return false;
+                else if (s[i] == 'f' && s[i + 1] == 'a' && s[i + 2] == 'c' && s[i + 3] == 't') return false;
+                else if (s[i] == 'p' && s[i + 1] == 'i') return false;
+                else if (s[i] == 'm' && s[i + 1] == 'o' && s[i + 2] == 'd') return false;
+                else if (s[i] == ('(') && s[i + 1] == '-') return false;
+
+            }
+
+            return true;
+            
+        }
         public static string format(string s)
         {
             String formatted = "";
@@ -111,7 +131,7 @@ namespace calculadora.Models
 
                 else if (s[i] == 'p' && s[i + 1] == 'i')
                 {
-                    formatted = formatted + "1x" + "3.141592";
+                    formatted = formatted + "3.141592";
                     i = i + 1;
                 }
 

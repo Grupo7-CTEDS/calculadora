@@ -245,7 +245,14 @@ namespace calculadora
             //TelaBanco.persistenciaContas.AppendText(OperationList[OperationList.Count-1].Text);
 
             NoModels raiz = new NoModels();
-            InfixTreeModels.build(InfixTreeRepositoriesModels.format(conta), ref raiz);
+            string formatted = conta;
+            do
+            {
+                formatted = InfixTreeRepositoriesModels.format(formatted);
+
+            } while (!InfixTreeRepositoriesModels.isFormatted(formatted));
+
+            InfixTreeModels.build(formatted, ref raiz);
             InfixTreeModels.calculate(ref raiz);
             
             boxContas1.Text = raiz.number.ToString();
