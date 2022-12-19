@@ -135,6 +135,7 @@ namespace calculadora
                 else if (root.operation == 'm') root.number = op1 % op2;
                 else if (root.operation == 'f') root.number = InfixTreeRepositoriesModels.factorial(op2);
                 else if (root.operation == '%') root.number = op1 * op2 / 100.0;
+                else if (root.operation == 'e') root.number = Math.Exp(op2);
                 root.operation = null;
 
             }

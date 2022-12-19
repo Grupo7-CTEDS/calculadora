@@ -25,7 +25,8 @@ namespace calculadora.Models
             'L',
             'm', //mod
             'f', // fatorial
-            '%'
+            '%',
+            'e'
 
         };
 
@@ -92,6 +93,7 @@ namespace calculadora.Models
                 else if (s[i] == 'f' && s[i + 1] == 'a' && s[i + 2] == 'c' && s[i + 3] == 't') return false;
                 else if (s[i] == 'p' && s[i + 1] == 'i') return false;
                 else if (s[i] == 'm' && s[i + 1] == 'o' && s[i + 2] == 'd') return false;
+                else if (s[i] == 'e' && s[i + 1] == 'x' && s[i + 2] == 'p') return false;
                 else if (s[i] == ('(') && s[i + 1] == '-') return false;
 
             }
@@ -144,6 +146,10 @@ namespace calculadora.Models
                 {
                     formatted = formatted + "(0-";
                     i = i + 1;
+                }
+                else if (s[i] == 'e' && s[i + 1] == 'x' && s[i + 2] == 'p')
+                {
+                    append(ref formatted, s, 3, ref i, "1e");
                 }
                 else formatted += s[i];
 
